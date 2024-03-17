@@ -4,6 +4,41 @@ import 'package:git_rebase_test/feature_1.dart';
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
+  Widget _menuItem({
+    required Function() onTap,
+    required Color backgroundColor,
+    required Color foregroundColor,
+    required String title,
+    required String sign,
+  }) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        height: 150,
+        width: 150,
+        color: backgroundColor,
+        alignment: Alignment.center,
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              "Snackbar preview",
+              textAlign: TextAlign.center,
+              style: TextStyle(color: foregroundColor, fontSize: 15),
+            ),
+            const SizedBox(height: 10),
+            Text(
+              "(feature 1)",
+              textAlign: TextAlign.center,
+              style: TextStyle(color: foregroundColor, fontSize: 11),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     ColorScheme colors = Theme.of(context).colorScheme;
@@ -20,58 +55,20 @@ class HomePage extends StatelessWidget {
             Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                GestureDetector(
+                _menuItem(
                   onTap: () =>
                       Navigator.push(context, MaterialPageRoute(builder: (_) => const Feature1())),
-                  child: Container(
-                    height: 150,
-                    width: 150,
-                    color: colors.primary,
-                    alignment: Alignment.center,
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(
-                          "Snackbar preview",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(color: colors.onPrimary, fontSize: 15),
-                        ),
-                        const SizedBox(height: 10),
-                        Text(
-                          "(feature 1)",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(color: colors.surfaceVariant, fontSize: 11),
-                        ),
-                      ],
-                    ),
-                  ),
+                  backgroundColor: colors.primary,
+                  foregroundColor: colors.onPrimary,
+                  title: "Snackbar preview",
+                  sign: "(feature 1)",
                 ),
-                GestureDetector(
+                _menuItem(
                   onTap: () => print("Click feature 2"),
-                  child: Container(
-                    height: 150,
-                    width: 150,
-                    color: colors.secondary,
-                    alignment: Alignment.center,
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(
-                          "Counter test",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(color: colors.onSecondary, fontSize: 15),
-                        ),
-                        const SizedBox(height: 10),
-                        Text(
-                          "(feature 2)",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(color: colors.surfaceVariant, fontSize: 11),
-                        ),
-                      ],
-                    ),
-                  ),
+                  backgroundColor: colors.secondary,
+                  foregroundColor: colors.onSecondary,
+                  title: "Counter test",
+                  sign: "(feature 2)",
                 ),
               ],
             ),
