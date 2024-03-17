@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:git_rebase_test/feature_1.dart';
 import 'package:git_rebase_test/feature_2.dart';
+import 'package:git_rebase_test/feature_3.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -77,7 +78,14 @@ class HomePage extends StatelessWidget {
             Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Container(height: 150, width: 150, color: colors.tertiary),
+                _menuItem(
+                  onTap: () =>
+                      Navigator.push(context, MaterialPageRoute(builder: (_) => const Feature3())),
+                  backgroundColor: colors.tertiary,
+                  foregroundColor: colors.onTertiary,
+                  title: "Toast",
+                  sign: "(feature 3)",
+                ),
                 Container(height: 150, width: 150, color: colors.surfaceVariant),
               ],
             ),
