@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:git_rebase_test/feature_1.dart';
+import 'package:git_rebase_test/feature_2.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -64,7 +65,8 @@ class HomePage extends StatelessWidget {
                   sign: "(feature 1)",
                 ),
                 _menuItem(
-                  onTap: () => print("Click feature 2"),
+                  onTap: () =>
+                      Navigator.push(context, MaterialPageRoute(builder: (_) => const Feature2())),
                   backgroundColor: colors.secondary,
                   foregroundColor: colors.onSecondary,
                   title: "Counter test",
