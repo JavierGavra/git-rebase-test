@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:git_rebase_test/feature_1.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -20,7 +21,8 @@ class HomePage extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 GestureDetector(
-                  onTap: () => print("Click feature 1"),
+                  onTap: () =>
+                      Navigator.push(context, MaterialPageRoute(builder: (_) => const Feature1())),
                   child: Container(
                     height: 150,
                     width: 150,
