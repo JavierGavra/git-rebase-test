@@ -24,13 +24,13 @@ class HomePage extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              "Snackbar preview",
+              title,
               textAlign: TextAlign.center,
               style: TextStyle(color: foregroundColor, fontSize: 15),
             ),
             const SizedBox(height: 10),
             Text(
-              "(feature 1)",
+              sign,
               textAlign: TextAlign.center,
               style: TextStyle(color: foregroundColor, fontSize: 11),
             ),
